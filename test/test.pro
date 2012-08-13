@@ -12,7 +12,7 @@ INCLUDEPATH += . \
     ..
 
 # Input
-SOURCES += testqstring.cpp \
+SOURCES += TestInputDigitale.cpp \
     QtTestUtil/SimpleChecker.cpp \
     ../InputDigitale.cpp \
     ../AbstractInputOutputDigitale.cpp

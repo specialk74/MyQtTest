@@ -323,4 +323,4 @@ private:
 
 //QTEST_MAIN(TestInputDigitale)
 QTTESTUTIL_REGISTER_TEST(TestInputDigitale);
-#include "testqstring.moc"
+#include "TestInputDigitale.moc"
