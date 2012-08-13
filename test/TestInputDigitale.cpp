@@ -194,7 +194,9 @@ private slots:
 
     void SetTipoConsentito()
     {
+        qDebug() << __LINE__;
         qRegisterMetaType<AbstractInputOutputDigitale::TipoDigitale>("TipoDigitale");
+        qDebug() << __LINE__;
         QSignalSpy spy(inputDigitale, SIGNAL(typeChanged(AbstractInputOutputDigitale::TipoDigitale)));
         QList<QVariant> arguments;
 
@@ -206,26 +208,29 @@ private slots:
                 QCOMPARE(true, result);
             }
 
-            if (listaTipiConsentiti[idx] != inputDigitale->type())
+            if (listaTipiConsentiti[idx] != inputDigitale->getType())
             {
-                inputDigitale->type(listaTipiConsentiti[idx]);
+                inputDigitale->setType(listaTipiConsentiti[idx]);
                 QCOMPARE(spy.count(), 1); // make sure the signal was emitted exactly 1 time
                 arguments = spy.takeFirst();
+                qDebug() << __LINE__;
                 QVERIFY(arguments.at(0).userType() == qMetaTypeId<AbstractInputOutputDigitale::TipoDigitale>());
+                qDebug() << __LINE__;
                 AbstractInputOutputDigitale::TipoDigitale result = arguments.at(0).value<AbstractInputOutputDigitale::TipoDigitale>();
+                qDebug() << __LINE__;
                 QVERIFY(result == listaTipiConsentiti[idx]); // verify the first argument
 
                 // Controllo che mantenga il tipo passato
-                AbstractInputOutputDigitale::TipoDigitale tipo = inputDigitale->type();
+                AbstractInputOutputDigitale::TipoDigitale tipo = inputDigitale->getType();
                 QCOMPARE(tipo, listaTipiConsentiti[idx]);
 
                 // Se risetto lo stesso tipo, deve ritornarmi zero
-                inputDigitale->type(listaTipiConsentiti[idx]);
+                inputDigitale->setType(listaTipiConsentiti[idx]);
                 QCOMPARE(spy.count(), 0); // make sure the signal was emitted exactly 0 time
             }
             else
             {
-                inputDigitale->type(listaTipiConsentiti[idx]);
+                inputDigitale->setType(listaTipiConsentiti[idx]);
                 QCOMPARE(spy.count(), 0); // make sure the signal was emitted exactly 0 time
             }
         }
@@ -242,7 +247,7 @@ private slots:
 
             {
                 QSignalSpy spy(inputDigitale, SIGNAL(typeChanged(AbstractInputOutputDigitale::TipoDigitale)));
-                inputDigitale->type(listaTipiNonConsentiti[idx]);
+                inputDigitale->setType(listaTipiNonConsentiti[idx]);
                 QCOMPARE(spy.count(), 0); // make sure the signal was emitted exactly 0 time
             }
         }
@@ -250,9 +255,9 @@ private slots:
 
     void CheckSignalValueWhenChangeTipo()
     {
-        inputDigitale->type(AbstractInputOutputDigitale::Generico_Input_NO);
+        inputDigitale->setType(AbstractInputOutputDigitale::Generico_Input_NO);
         QSignalSpy spy(inputDigitale, SIGNAL(typeChanged(AbstractInputOutputDigitale::TipoDigitale)));
-        inputDigitale->type(AbstractInputOutputDigitale::Radar);
+        inputDigitale->setType(AbstractInputOutputDigitale::Radar);
         QCOMPARE(spy.count(), 1); // make sure the signal was emitted exactly 1 time
     }
     /* FINE TYPE*/

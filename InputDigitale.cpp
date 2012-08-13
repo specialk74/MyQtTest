@@ -10,21 +10,18 @@ InputDigitale::~InputDigitale()
 {
 }
 
-AbstractInputOutputDigitale::TipoDigitale InputDigitale::type()
+AbstractInputOutputDigitale::TipoDigitale InputDigitale::getType()
 {
   return m_tipo;
 }
 
-void InputDigitale::type (AbstractInputOutputDigitale::TipoDigitale t)
+void InputDigitale::setTypeProtected (AbstractInputOutputDigitale::TipoDigitale t)
 {
-  if (canChangeTypeIn(t))
-  {
-       if (m_tipo == t)
+    if (m_tipo == t)
         return;
-        
-       m_tipo = t;
-       emit typeChanged(t);
-  }
+
+    m_tipo = t;
+    emit typeChanged(t);
 }
 
 

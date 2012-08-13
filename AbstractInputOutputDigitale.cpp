@@ -53,3 +53,11 @@ QString AbstractInputOutputDigitale::name() const
 {
   return objectName();
 }
+
+void AbstractInputOutputDigitale::setType (AbstractInputOutputDigitale::TipoDigitale t)
+{
+  if (canChangeTypeIn(t))
+  {
+       setTypeProtected(t);
+  }
+}

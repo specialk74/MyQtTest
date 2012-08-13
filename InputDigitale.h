@@ -20,9 +20,11 @@ public:
     virtual bool isInput() { return true; }
 
     virtual bool canChangeType() { return true; }
-    virtual AbstractInputOutputDigitale::TipoDigitale type();
-    virtual void type(AbstractInputOutputDigitale::TipoDigitale);
+    virtual AbstractInputOutputDigitale::TipoDigitale getType();
     virtual bool canChangeTypeIn (AbstractInputOutputDigitale::TipoDigitale);
+
+protected:
+    virtual void setTypeProtected(AbstractInputOutputDigitale::TipoDigitale);
 
 private:
 
