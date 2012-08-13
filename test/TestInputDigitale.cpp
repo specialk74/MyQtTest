@@ -72,6 +72,10 @@ static AbstractInputOutputDigitale::TipoDigitale listaTipiNonConsentiti[] = {
     AbstractInputOutputDigitale::Uscita_Controllo_Carichi_ManLiv8,
 };
 
+static QString nomeSetGood = "1234567890123456";
+static QString nomeSetBad  = "12345678901234567";
+
+
 class TestInputDigitale: public QObject
 {
     Q_OBJECT
@@ -275,26 +279,23 @@ private slots:
 
     void SetName()
     {
-        QString nomeSet = "0123456789012345";
         QSignalSpy spy(inputDigitale, SIGNAL(nameChanged(QString)));
-        inputDigitale->name(nomeSet);
+        inputDigitale->name(nomeSetGood);
         QCOMPARE(spy.count(), 1); // make sure the signal was emitted exactly 1 time
 
         QList<QVariant> arguments = spy.takeFirst();
         QVERIFY(arguments.at(0).type() == QVariant::String);
-        QVERIFY(arguments.at(0).toString() == nomeSet); // verify the first argument
+        QVERIFY(arguments.at(0).toString() == nomeSetGood); // verify the first argument
     }
 
     void GetName()
     {
-        QString nomeSet = "0123456789012345";
-        inputDigitale->name(nomeSet);
-        QCOMPARE(nomeSet, inputDigitale->name());
+        inputDigitale->name(nomeSetGood);
+        QCOMPARE(nomeSetGood, inputDigitale->name());
     }
 
     void SetNameTooLong()
     {
-        QString nomeSetBad = "12345678901234567";
         QSignalSpy spy(inputDigitale, SIGNAL(nameChanged(QString)));
         inputDigitale->name(nomeSetBad);
         QCOMPARE(spy.count(), 0); // make sure the signal was emitted exactly 0 time
@@ -302,10 +303,8 @@ private slots:
 
     void SetNameNotChange()
     {
-        QString nomeSetGood = "1234567890123456";
         inputDigitale->name(nomeSetGood);
 
-        QString nomeSetBad = "12345678901234567";
         QSignalSpy spy(inputDigitale, SIGNAL(nameChanged(QString)));
         inputDigitale->name(nomeSetBad);
         QCOMPARE(spy.count(), 0); // make sure the signal was emitted exactly 0 time
@@ -315,7 +314,6 @@ private slots:
 
     void SetNameSameName()
     {
-        QString nomeSetGood = "1234567890123456";
         inputDigitale->name(nomeSetGood);
         QSignalSpy spy(inputDigitale, SIGNAL(nameChanged(QString)));
         inputDigitale->name(nomeSetGood);

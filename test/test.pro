@@ -15,11 +15,14 @@ SOURCES += TestInputDigitale.cpp \
     QtTestUtil/SimpleChecker.cpp \
     ../InputDigitale.cpp \
     ../AbstractInputOutputDigitale.cpp \
+    ../typeio.cpp \
     ../helper.cpp \
-    TestTypeIO.cpp
+    TestTypeIO.cpp \
+    TestHelper.cpp
 HEADERS += ../InputDigitale.h \
     ../AbstractInputOutputDigitale.h \
-    ../helper.h
+    ../helper.h \
+    ../typeio.h
 
 # Add an extra 'make check' target.
 QMAKE_EXTRA_TARGETS = check

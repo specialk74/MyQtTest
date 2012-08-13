@@ -43,8 +43,7 @@ int AbstractInputOutputDigitale::value()
 void AbstractInputOutputDigitale::name (const QString & str)
 {
     if (CheckLenName16Char(*this, str))
-    {
-        setObjectName(str);
+    {        
         emit nameChanged(str);
     }
 }

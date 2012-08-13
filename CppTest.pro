@@ -9,10 +9,12 @@ SOURCES += main.cpp \
     OutputDigitale.cpp \
     InputDigitale.cpp \
     AbstractInputOutputDigitale.cpp \
-    helper.cpp
+    helper.cpp \
+    typeio.cpp
 HEADERS += mainwindow.h \
     OutputDigitale.h \
     InputDigitale.h \
     AbstractInputOutputDigitale.h \
-    helper.h
+    helper.h \
+    typeio.h
 FORMS += mainwindow.ui

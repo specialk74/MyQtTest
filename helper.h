@@ -5,7 +5,7 @@
 #include <QObject>
 #include <QString>
 
-int CheckLenName16Char (QObject const &, QString const &);
+int CheckLenName16Char (QObject &, QString const &);
 
 enum MyProperty {
     PROPERTY_TYPE,
