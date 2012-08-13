@@ -1,6 +1,15 @@
 #ifndef TYPEIO_H
 #define TYPEIO_H
 
+enum TIPI_DI_IO {
+    TIPO_INPUT_DIGITALE_NORMALE,
+    TIPO_OUTPUT_DIGITALE_NORMALE,
+    TIPO_INPUT_DIGITALE_FEEDBACK,
+    TIPO_INPUT_DIGITALE_SABOTAGGIO,
+    TIPO_INPUT_ANALOGICO,
+    TIPO_OUTPUT_ANALOGICO
+};
+
 class TypeIO
 {
 public:
@@ -71,6 +80,7 @@ public:
         Uscita_Controllo_Carichi_ManLiv8,
     };
 
+    static bool init();
     static bool isInput(TipoDigitale const&);
 };
 

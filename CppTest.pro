@@ -18,3 +18,6 @@ HEADERS += mainwindow.h \
     helper.h \
     typeio.h
 FORMS += mainwindow.ui
+
+OTHER_FILES += \
+    TypeIO.xml

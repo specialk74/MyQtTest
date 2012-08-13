@@ -5,13 +5,18 @@
 
 #include "typeio.h"
 
-
 class TestTypeIO: public QObject
 {
     Q_OBJECT
 public:
 
 private slots:
+    void initTestCase ()
+    {
+        bool result = TypeIO::init();
+        QVERIFY(result == true);
+    }
+
     void init()
     {
     }

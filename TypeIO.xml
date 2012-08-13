@@ -1,0 +1,7 @@
+<TypeIO>
+    <InputDigitali>
+        <Generico_Input_NO value="0"/>
+        <Regolazione_Impulsiva value="1"/>
+        <Pulsante value="2"/>
+    </InputDigitali>
+</TypeIO>
