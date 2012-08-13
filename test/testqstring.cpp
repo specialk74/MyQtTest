@@ -1,6 +1,7 @@
 #include <QtTest/QtTest>
 #include <QDebug>
 #include <QSignalSpy>
+#include "QtTestUtil/QtTestUtil.h"
 
 #include "InputDigitale.h"
 
@@ -88,7 +89,7 @@ public:
         QSignalSpy spy(inputDigitale, SIGNAL(valueChanged(int)));
 
         inputDigitale->value(val);
-        QCOMPARE(spy.count(), 0); // make sure the signal was emitted exactly one time
+        QCOMPARE(spy.count(), 0); // make sure the signal was emitted exactly 0 time
     }
 
 
@@ -122,7 +123,7 @@ private slots:
     {
         QSignalSpy spy(inputDigitale, SIGNAL(valueChanged(int)));
         inputDigitale->value(1);
-        QCOMPARE(spy.count(), 1); // make sure the signal was emitted exactly one time
+        QCOMPARE(spy.count(), 1); // make sure the signal was emitted exactly 1 time
 
         QList<QVariant> arguments = spy.takeFirst();
         QVERIFY(arguments.at(0).type() == QVariant::Int);
@@ -134,7 +135,7 @@ private slots:
         inputDigitale->value(1);
         QSignalSpy spy(inputDigitale, SIGNAL(valueChanged(int)));
         inputDigitale->value(0);
-        QCOMPARE(spy.count(), 1); // make sure the signal was emitted exactly one time
+        QCOMPARE(spy.count(), 1); // make sure the signal was emitted exactly 1 time
 
         QList<QVariant> arguments = spy.takeFirst();
         QVERIFY(arguments.at(0).type() == QVariant::Int);
@@ -146,13 +147,13 @@ private slots:
         {
             QSignalSpy spy(inputDigitale, SIGNAL(valueChanged(int)));
             inputDigitale->value(-1);
-            QCOMPARE(spy.count(), 0); // make sure the signal was emitted exactly one time
+            QCOMPARE(spy.count(), 0); // make sure the signal was emitted exactly 0 time
         }
 
         {
             QSignalSpy spy(inputDigitale, SIGNAL(valueChanged(int)));
             inputDigitale->value(2);
-            QCOMPARE(spy.count(), 0); // make sure the signal was emitted exactly one time
+            QCOMPARE(spy.count(), 0); // make sure the signal was emitted exactly 1 time
         }
     }
 
@@ -208,7 +209,7 @@ private slots:
             if (listaTipiConsentiti[idx] != inputDigitale->type())
             {
                 inputDigitale->type(listaTipiConsentiti[idx]);
-                QCOMPARE(spy.count(), 1); // make sure the signal was emitted exactly one time
+                QCOMPARE(spy.count(), 1); // make sure the signal was emitted exactly 1 time
                 arguments = spy.takeFirst();
                 QVERIFY(arguments.at(0).userType() == qMetaTypeId<AbstractInputOutputDigitale::TipoDigitale>());
                 AbstractInputOutputDigitale::TipoDigitale result = arguments.at(0).value<AbstractInputOutputDigitale::TipoDigitale>();
@@ -220,12 +221,12 @@ private slots:
 
                 // Se risetto lo stesso tipo, deve ritornarmi zero
                 inputDigitale->type(listaTipiConsentiti[idx]);
-                QCOMPARE(spy.count(), 0); // make sure the signal was emitted exactly one time
+                QCOMPARE(spy.count(), 0); // make sure the signal was emitted exactly 0 time
             }
             else
             {
                 inputDigitale->type(listaTipiConsentiti[idx]);
-                QCOMPARE(spy.count(), 0); // make sure the signal was emitted exactly one time
+                QCOMPARE(spy.count(), 0); // make sure the signal was emitted exactly 0 time
             }
         }
     }
@@ -242,7 +243,7 @@ private slots:
             {
                 QSignalSpy spy(inputDigitale, SIGNAL(typeChanged(AbstractInputOutputDigitale::TipoDigitale)));
                 inputDigitale->type(listaTipiNonConsentiti[idx]);
-                QCOMPARE(spy.count(), 0); // make sure the signal was emitted exactly one time
+                QCOMPARE(spy.count(), 0); // make sure the signal was emitted exactly 0 time
             }
         }
     }
@@ -252,7 +253,7 @@ private slots:
         inputDigitale->type(AbstractInputOutputDigitale::Generico_Input_NO);
         QSignalSpy spy(inputDigitale, SIGNAL(typeChanged(AbstractInputOutputDigitale::TipoDigitale)));
         inputDigitale->type(AbstractInputOutputDigitale::Radar);
-        QCOMPARE(spy.count(), 1); // make sure the signal was emitted exactly one time
+        QCOMPARE(spy.count(), 1); // make sure the signal was emitted exactly 1 time
     }
     /* FINE TYPE*/
 
@@ -272,7 +273,7 @@ private slots:
         QString nomeSet = "0123456789012345";
         QSignalSpy spy(inputDigitale, SIGNAL(nameChanged(QString)));
         inputDigitale->name(nomeSet);
-        QCOMPARE(spy.count(), 1); // make sure the signal was emitted exactly one time
+        QCOMPARE(spy.count(), 1); // make sure the signal was emitted exactly 1 time
 
         QList<QVariant> arguments = spy.takeFirst();
         QVERIFY(arguments.at(0).type() == QVariant::String);
@@ -291,7 +292,7 @@ private slots:
         QString nomeSetBad = "12345678901234567";
         QSignalSpy spy(inputDigitale, SIGNAL(nameChanged(QString)));
         inputDigitale->name(nomeSetBad);
-        QCOMPARE(spy.count(), 0); // make sure the signal was emitted exactly one time
+        QCOMPARE(spy.count(), 0); // make sure the signal was emitted exactly 0 time
     }
 
     void SetNameNotChange()
@@ -302,7 +303,7 @@ private slots:
         QString nomeSetBad = "12345678901234567";
         QSignalSpy spy(inputDigitale, SIGNAL(nameChanged(QString)));
         inputDigitale->name(nomeSetBad);
-        QCOMPARE(spy.count(), 0); // make sure the signal was emitted exactly one time
+        QCOMPARE(spy.count(), 0); // make sure the signal was emitted exactly 0 time
 
         QCOMPARE(nomeSetGood, inputDigitale->name());
     }
@@ -313,12 +314,13 @@ private slots:
         inputDigitale->name(nomeSetGood);
         QSignalSpy spy(inputDigitale, SIGNAL(nameChanged(QString)));
         inputDigitale->name(nomeSetGood);
-        QCOMPARE(spy.count(), 0); // make sure the signal was emitted exactly one time
+        QCOMPARE(spy.count(), 0); // make sure the signal was emitted exactly 0 time
     }
 
 private:
     InputDigitale *inputDigitale;
 };
 
-QTEST_MAIN(TestInputDigitale)
+//QTEST_MAIN(TestInputDigitale)
+QTTESTUTIL_REGISTER_TEST(TestInputDigitale);
 #include "testqstring.moc"

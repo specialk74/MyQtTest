@@ -20,10 +20,10 @@ public:
     virtual bool isInput() { return false; }
     
     virtual AbstractInputOutputDigitale::TipoDigitale type();
-    virtual int type (AbstractInputOutputDigitale::TipoDigitale) { return -1;}
-    virtual int canChangeTypeIn (AbstractInputOutputDigitale::TipoDigitale) { return 0; }
+    virtual void type (AbstractInputOutputDigitale::TipoDigitale) { }
+    virtual bool canChangeTypeIn (AbstractInputOutputDigitale::TipoDigitale) { return false; }
 
-    virtual int name (const QString &) { return 0; }
+    virtual void name (const QString &) { }
     virtual QString name () const {return m_nome;}
 
     
