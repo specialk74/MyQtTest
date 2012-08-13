@@ -1,8 +1,13 @@
+#include <QVariant>
+#include "helper.h"
 #include "InputDigitale.h"
 
 InputDigitale::InputDigitale(QObject *parent) : AbstractInputOutputDigitale (parent)
 {
   m_tipo = Generico_Input_NO;
+
+  setProperty(getMyProperty(PROPERTY_TYPE), QVariant(AbstractInputOutputDigitale::Generico_Input_NO));
+
   setObjectName("");
 }
 
@@ -12,15 +17,12 @@ InputDigitale::~InputDigitale()
 
 AbstractInputOutputDigitale::TipoDigitale InputDigitale::getType()
 {
-  return m_tipo;
+    return property(getMyProperty(PROPERTY_TYPE)).value<AbstractInputOutputDigitale::TipoDigitale>();
 }
 
 void InputDigitale::setTypeProtected (AbstractInputOutputDigitale::TipoDigitale t)
 {
-    if (m_tipo == t)
-        return;
-
-    m_tipo = t;
+    setProperty(getMyProperty(PROPERTY_TYPE), QVariant(t));
     emit typeChanged(t);
 }
 
