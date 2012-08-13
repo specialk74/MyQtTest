@@ -15,7 +15,8 @@ SOURCES += TestInputDigitale.cpp \
     QtTestUtil/SimpleChecker.cpp \
     ../InputDigitale.cpp \
     ../AbstractInputOutputDigitale.cpp \
-    ../helper.cpp
+    ../helper.cpp \
+    TestTypeIO.cpp
 HEADERS += ../InputDigitale.h \
     ../AbstractInputOutputDigitale.h \
     ../helper.h
