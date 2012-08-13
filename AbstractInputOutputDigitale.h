@@ -8,6 +8,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 #include <QMetaType>
+#include <QMap>
 #include <QObject>
 #include <QString>
 
@@ -88,19 +89,22 @@ public:
         Uscita_Controllo_Carichi_ManLiv8,
     };
     
-    virtual TipoDigitale type() = 0;
-    virtual void type (TipoDigitale) = 0;
+    virtual TipoDigitale getType() = 0;
+    virtual void setType (TipoDigitale);
     
     virtual bool canChangeType() = 0;
     virtual bool canChangeTypeIn (TipoDigitale) = 0;
     
-    virtual void name (const QString &) = 0;
-    virtual QString name () const = 0;
+    virtual void name (const QString &);
+    virtual QString name () const;
     
 signals:
     void valueChanged(int);
     void nameChanged(QString);
     void typeChanged(AbstractInputOutputDigitale::TipoDigitale);
+
+protected:
+    virtual void setTypeProtected (TipoDigitale) {}
 
 private:
 
