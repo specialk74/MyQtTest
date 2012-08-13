@@ -94,8 +94,8 @@ public:
     virtual bool canChangeType() = 0;
     virtual bool canChangeTypeIn (TipoDigitale) = 0;
     
-    virtual void name (const QString &) = 0;
-    virtual QString name () const = 0;
+    virtual void name (const QString &);
+    virtual QString name () const;
     
 signals:
     void valueChanged(int);

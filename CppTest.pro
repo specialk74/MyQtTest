@@ -8,10 +8,11 @@ SOURCES += main.cpp \
     mainwindow.cpp \
     OutputDigitale.cpp \
     InputDigitale.cpp \
-    AbstractInputOutputDigitale.cpp
+    AbstractInputOutputDigitale.cpp \
+    helper.cpp
 HEADERS += mainwindow.h \
     OutputDigitale.h \
     InputDigitale.h \
     AbstractInputOutputDigitale.h \
-    ui_mainwindow.h
+    helper.h
 FORMS += mainwindow.ui

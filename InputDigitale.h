@@ -24,9 +24,6 @@ public:
     virtual void type(AbstractInputOutputDigitale::TipoDigitale);
     virtual bool canChangeTypeIn (AbstractInputOutputDigitale::TipoDigitale);
 
-    virtual void name(const QString &);
-    virtual QString name() const;
-    
 private:
 
     InputDigitale(const InputDigitale&);

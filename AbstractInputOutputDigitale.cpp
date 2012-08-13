@@ -1,4 +1,5 @@
 #include "AbstractInputOutputDigitale.h"
+#include "helper.h"
 
 AbstractInputOutputDigitale::AbstractInputOutputDigitale(QObject *parent) : QObject (parent)
 {
@@ -39,3 +40,16 @@ int AbstractInputOutputDigitale::value()
 	return ((m_value == true) ? 1 : 0); 
 }
 
+void AbstractInputOutputDigitale::name (const QString & str)
+{
+    if (CheckLenName16Char(*this, str))
+    {
+        setObjectName(str);
+        emit nameChanged(str);
+    }
+}
+
+QString AbstractInputOutputDigitale::name() const
+{
+  return objectName();
+}

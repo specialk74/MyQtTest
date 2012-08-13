@@ -321,6 +321,5 @@ private:
     InputDigitale *inputDigitale;
 };
 
-//QTEST_MAIN(TestInputDigitale)
 QTTESTUTIL_REGISTER_TEST(TestInputDigitale);
 #include "TestInputDigitale.moc"

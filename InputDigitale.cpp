@@ -102,20 +102,3 @@ bool InputDigitale::canChangeTypeIn (AbstractInputOutputDigitale::TipoDigitale t
   
     return true;
 }
-
-void InputDigitale::name (const QString & str)
-{
-  if (str.length() > 16)
-    return;
-    
-  if (objectName() == str)
-    return;
-    
-  setObjectName(str);
-  emit nameChanged(str);
-}
-
-QString InputDigitale::name() const
-{
-  return objectName();
-}
