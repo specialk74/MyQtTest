@@ -10,115 +10,136 @@ SingleTypeIO::~SingleTypeIO()
 
 }
 
-bool SingleTypeIO::load (const QDomElement &element)
+
+
+
+bool SingleTypeIO::setBool (const QDomElement &element, const char *attribute)
 {
-    if (element.tagName() != getTagName())
-        return false;
-
-    if (element.hasAttribute(getAttributeNome()))
+    if (element.hasAttribute(attribute))
     {
-        setProperty(getAttributeNome(), element.attribute(getAttributeNome()));
-    }
-
-    if (element.hasAttribute(getAttributeValue()))
-    {
-        int v = element.attribute(getAttributeValue()).toInt();
-        if (v < 0)
-            return false;
-        setProperty(getAttributeValue(), v);
-    }
-
-    if (element.hasAttribute(getAttributeInput()))
-    {
-        int v = element.attribute(getAttributeInput()).toInt();
+        int v = element.attribute(attribute).toInt();
         if ((v < 0) || (v > 1))
             return false;
-        setProperty(getAttributeInput(), v);
-    }
 
-    if (element.hasAttribute(getAttributeDigital()))
-    {
-        int v = element.attribute(getAttributeDigital()).toInt();
-        if ((v < 0) || (v > 1))
-            return false;
-        setProperty(getAttributeDigital(), v);
-    }
-
-    if (element.hasAttribute(getAttributeGroup()))
-    {
-        int v = element.attribute(getAttributeGroup()).toInt();
-        if (v < 0)
-            return false;
-        setProperty(getAttributeGroup(), v);
-    }
-
-    if (element.hasAttribute(getAttributeCanChangeName()))
-    {
-        int v = element.attribute(getAttributeCanChangeName()).toInt();
-        if ((v < 0) || (v > 1))
-            return false;
-        setProperty(getAttributeCanChangeName(), v);
+        setProperty(attribute, v);
     }
 
     return true;
 }
 
-QString SingleTypeIO::nome() const
+bool SingleTypeIO::setInt (const QDomElement &element, const char *attribute)
 {
-    if (property(getAttributeNome()).isValid())
+    if (element.hasAttribute(attribute))
     {
-        return property(getAttributeNome()).value<QString>();
+        int v = element.attribute(attribute).toInt();
+        if (v < 0)
+            return false;
+
+        setProperty(attribute, v);
+    }
+
+    return true;
+}
+
+void SingleTypeIO::setString (const QDomElement &element, const char *attribute)
+{
+    if (element.hasAttribute(attribute))
+    {
+        setProperty(getAttributeNome(), element.attribute(attribute));
+    }
+}
+
+
+
+
+
+bool SingleTypeIO::load (const QDomElement &element)
+{
+    if (element.tagName() != getTagName())
+        return false;
+
+    setString(element, getAttributeNome());
+
+    if (!setInt (element, getAttributeValue()))
+        return false;
+
+    if (!setBool (element, getAttributeInput()))
+        return false;
+
+    if (!setBool (element, getAttributeDigital()))
+        return false;
+
+    if (!setInt (element, getAttributeGroup()))
+        return false;
+
+    if (!setBool (element, getAttributeCanChangeName()))
+        return false;
+
+    return true;
+}
+
+
+
+
+bool SingleTypeIO::readBool (const char *attribute) const
+{
+    if (property(attribute).isValid())
+    {
+        return property(attribute).value<bool>();
+    }
+
+    return false;
+}
+
+QString SingleTypeIO::readString (const char *attribute) const
+{
+    if (property(attribute).isValid())
+    {
+        return property(attribute).value<QString>();
     }
 
     return QString("");
 }
 
-int SingleTypeIO::value() const
+int SingleTypeIO::readInt (const char *attribute) const
 {
-    if (property(getAttributeValue()).isValid())
+    if (property(attribute).isValid())
     {
-        return property(getAttributeValue()).value<int>();
+        return property(attribute).value<int>();
     }
 
     return -1;
+}
+
+
+
+
+QString SingleTypeIO::nome() const
+{
+    return readString(getAttributeNome());
+}
+
+int SingleTypeIO::value() const
+{
+    return readInt(getAttributeValue());
 }
 
 bool SingleTypeIO::isInput() const
 {
-    if (property(getAttributeInput()).isValid())
-    {
-        return property(getAttributeInput()).value<bool>();
-    }
-
-    return false;
+    return readBool(getAttributeInput());
 }
 
 bool SingleTypeIO::isDigital() const
 {
-    if (property(getAttributeDigital()).isValid())
-    {
-        return property(getAttributeDigital()).value<bool>();
-    }
-
-    return false;
+    return readBool(getAttributeDigital());
 }
 
 int SingleTypeIO::group() const
 {
-    if (property(getAttributeGroup()).isValid())
-    {
-        return property(getAttributeGroup()).value<int>();
-    }
-
-    return -1;
+    return readInt(getAttributeGroup());
 }
 
 bool SingleTypeIO::canChangeName() const
 {
-    if (property(getAttributeCanChangeName()).isValid())
-    {
-        return property(getAttributeCanChangeName()).value<bool>();
-    }
-
-    return false;
+    return readBool(getAttributeCanChangeName());
 }
