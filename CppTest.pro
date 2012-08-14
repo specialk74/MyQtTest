@@ -3,6 +3,7 @@
 # -------------------------------------------------
 TARGET = CppTest
 CONFIG += qt
+QT += xml
 TEMPLATE = app
 SOURCES += main.cpp \
     mainwindow.cpp \
@@ -10,14 +11,15 @@ SOURCES += main.cpp \
     InputDigitale.cpp \
     AbstractInputOutputDigitale.cpp \
     helper.cpp \
-    typeio.cpp
+    typeio.cpp \
+    singletypeio.cpp
 HEADERS += mainwindow.h \
     OutputDigitale.h \
     InputDigitale.h \
     AbstractInputOutputDigitale.h \
     helper.h \
-    typeio.h
+    typeio.h \
+    singletypeio.h
 FORMS += mainwindow.ui
-
-OTHER_FILES += \
-    TypeIO.xml
+OTHER_FILES += TypeIO.xml
+RESOURCES += qresource.qrc

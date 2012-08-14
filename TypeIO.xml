@@ -1,7 +1,60 @@
 <TypeIO>
-    <InputDigitali>
-        <Generico_Input_NO value="0"/>
-        <Regolazione_Impulsiva value="1"/>
-        <Pulsante value="2"/>
-    </InputDigitali>
+    <io n="Generico NO" v="0" i="1" d="1" g="1" cn="1"/>
+    <io n="Regolazione Impulsiva" v="1" i="1" d="1" g="1" cn="1"/>
+    <io n="Pulsante" v="2" i="1" d="1" g="1" cn="1"/>
+    <io n="Crepuscolare" v="3" i="1" d="1" g="1" cn="1"/>
+    <io n="Anemometro" v="4" i="1" d="1" g="1" cn="1"/>
+    <io n="Pluviometro" v="5" i="1" d="1" g="1" cn="1"/>
+    <io n="Termostato" v="6" i="1" d="1" g="1" cn="1"/>
+    <io n="Inseritore NO" v="7" i="1" d="1" g="1" cn="1"/>
+    <io n="Presenza Rete" v="8" i="1" d="1" g="1" cn="1"/>
+    <io n="Generico NC" v="10" i="1" d="1" g="1" cn="1"/>
+    <io n="Radar" v="11" i="1" d="1" g="1" cn="1"/>
+    <io n="Magneti Serramenti" v="12" i="1" d="1" g="1" cn="1"/>
+    <io n="Inseritore NC" v="13" i="1" d="1" g="1" cn="1"/>
+    <io n="Sistema Sicurezza" v="14" i="1" d="1" g="1" cn="1"/>
+    <io n="Assenza Rete" v="18" i="1" d="1" g="1" cn="1"/>
+
+    <io n="Radar sens bassa" v="15" pds="6" i="1" d="1" g="2" cn="1"/>
+    <io n="Radar sens media" v="16" pds="6" i="1" d="1" g="2" cn="1"/>
+    <io n="Radar sens alta" v="17" pds="6" i="1" d="1" g="2" cn="1"/>
+
+    <io n="Generico Analogico" v="20" pds="2" i=1" d="0" g="3" cn="1"/>
+    <io n="Controllo Carichi" v="60" pds="2" i="1" d="0" g="3" cn="1"/>
+
+    <io n="Sensore Temperatura" v="21" pds="3" pds="6" i="1" d="0" g="4" cn="1"/>
+
+    <io n="Sensore Luce" v="22" pds="3" pds="6" i="1" d="0" g="5" cn="1"/>
+
+    <io n="Generica NO" v="30" i="0" d="1" g="6" cn="1"/>
+    <io n="Luce/Presa" v="31" i="0" d="1" g="6" cn="1"/>
+    <io n="Elettrovalvola" v="32" i="0" d="1" g="6" cn="1"/>
+    <io n="Motore" v="33" i="0" d="1" g="6" cn="1"/>
+    <io n="Suoneria" v="34" i="0" d="1" g="6" cn="1"/>
+    <io n="Antifurto" v="35" i="0" d="1" g="6" cn="1"/>
+    <io n="Generica NC" v="36" i="0" d="1" g="6" cn="1"/>
+    <io n="Controllo Carichi Liv.1" v="61" i="0" d="1" g="6" cn="1"/>
+    <io n="Controllo Carichi Liv.2" v="62" i="0" d="1" g="6" cn="1"/>
+    <io n="Controllo Carichi Liv.3" v="63" i="0" d="1" g="6" cn="1"/>
+    <io n="Controllo Carichi Liv.4" v="64" i="0" d="1" g="6" cn="1"/>
+    <io n="Controllo Carichi Liv.5" v="65" i="0" d="1" g="6" cn="1"/>
+    <io n="Controllo Carichi Liv.6" v="66" i="0" d="1" g="6" cn="1"/>
+    <io n="Controllo Carichi Liv.7" v="67" i="0" d="1" g="6" cn="1"/>
+    <io n="Controllo Carichi Liv.8" v="68" i="0" d="1" g="6" cn="1"/>
+    <io n="Controllo Carichi Liv.1 Man" v="71" i="0" d="1" g="6" cn="1"/>
+    <io n="Controllo Carichi Liv.2 Man" v="72" i="0" d="1" g="6" cn="1"/>
+    <io n="Controllo Carichi Liv.3 Man" v="73" i="0" d="1" g="6" cn="1"/>
+    <io n="Controllo Carichi Liv.4 Man" v="74" i="0" d="1" g="6" cn="1"/>
+    <io n="Controllo Carichi Liv.5 Man" v="75" i="0" d="1" g="6" cn="1"/>
+    <io n="Controllo Carichi Liv.6 Man" v="76" i="0" d="1" g="6" cn="1"/>
+    <io n="Controllo Carichi Liv.7 Man" v="77" i="0" d="1" g="6" cn="1"/>
+    <io n="Controllo Carichi Liv.8 Man" v="78" i="0" d="1" g="6" cn="1"/>
+
+    <io n="Uscita Analogica" v="40" pds="2" i="0" d="0" g="7" cn="1"/>
+
+    <io n="Led" v="41" pds="6" i="0" d="0" g="8" cn="1"/>
+
+    <io n="FeedBack" v="100" pds="2" i="1" d="1" g="9" cn="0" />
+
+    <io n="Sabotaggio" v="101" pds="2" i="1" d="1" g="10" cn="0" />
 </TypeIO>

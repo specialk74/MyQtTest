@@ -4,6 +4,7 @@
 include(QtTestUtil/QtTestUtil.pri)
 CONFIG += qt \
     qtestlib
+QT += xml
 TEMPLATE = app
 TARGET = 
 DEPENDPATH += .
@@ -18,11 +19,14 @@ SOURCES += TestInputDigitale.cpp \
     ../typeio.cpp \
     ../helper.cpp \
     TestTypeIO.cpp \
-    TestHelper.cpp
+    TestHelper.cpp \
+    TestSingleTypeIO.cpp \
+    ../singletypeio.cpp
 HEADERS += ../InputDigitale.h \
     ../AbstractInputOutputDigitale.h \
     ../helper.h \
-    ../typeio.h
+    ../typeio.h \
+    ../singletypeio.h
 
 # Add an extra 'make check' target.
 QMAKE_EXTRA_TARGETS = check

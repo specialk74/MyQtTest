@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>TypeIO.xml</file>
+    </qresource>
+</RCC>
