@@ -8,7 +8,6 @@ static std::map<MyProperty, const char *> my_map(arr, arr + sizeof(arr) / sizeof
 
 QMap<MyProperty, const char *> m_mapProperty(my_map);
 
-
 int CheckLenName16Char (QObject & obj, QString const & str)
 {
     if (str.length() > 16)

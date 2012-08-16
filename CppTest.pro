@@ -12,14 +12,18 @@ SOURCES += main.cpp \
     AbstractInputOutputDigitale.cpp \
     helper.cpp \
     typeio.cpp \
-    singletypeio.cpp
+    singletypeio.cpp \
+    abstractio.cpp \
+    concretedigitalio.cpp
 HEADERS += mainwindow.h \
     OutputDigitale.h \
     InputDigitale.h \
     AbstractInputOutputDigitale.h \
     helper.h \
     typeio.h \
-    singletypeio.h
+    singletypeio.h \
+    abstractio.h \
+    concretedigitalio.h
 FORMS += mainwindow.ui
 OTHER_FILES += TypeIO.xml
 RESOURCES += qresource.qrc

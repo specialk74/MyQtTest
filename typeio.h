@@ -18,6 +18,7 @@ public:
     static void clear ();
     static SingleTypeIO *at (int idx) { return m_mapTypeIO[idx]; }
     static int size() { return m_mapTypeIO.size(); }
+    static bool canChangeTypeIn (const int& left, const int& right);
 
 private:
     static QMap<int, SingleTypeIO *> m_mapTypeIO;

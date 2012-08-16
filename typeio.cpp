@@ -72,3 +72,13 @@ bool TypeIO::init(const QString &nomeFile)
 }
 
 
+bool TypeIO::canChangeTypeIn (const int& left, const int& right)
+{
+    SingleTypeIO *singleLeft = at(left);
+    SingleTypeIO *singleRight = at(right);
+
+    if ((singleLeft == NULL) || (singleRight == NULL))
+        return false;
+
+    return (singleLeft->group() == singleRight->group());
+}

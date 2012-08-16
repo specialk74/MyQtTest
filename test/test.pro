@@ -3,7 +3,8 @@
 # #####################################################################
 include(QtTestUtil/QtTestUtil.pri)
 CONFIG += qt \
-    qtestlib
+    qtestlib \
+    debug
 QT += xml
 TEMPLATE = app
 TARGET = 
@@ -21,12 +22,17 @@ SOURCES += TestInputDigitale.cpp \
     TestTypeIO.cpp \
     TestHelper.cpp \
     TestSingleTypeIO.cpp \
-    ../singletypeio.cpp
+    ../singletypeio.cpp \
+    TestConcreteDigitalIO.cpp \
+    ../concretedigitalio.cpp \
+    ../abstractio.cpp
 HEADERS += ../InputDigitale.h \
     ../AbstractInputOutputDigitale.h \
     ../helper.h \
     ../typeio.h \
-    ../singletypeio.h
+    ../singletypeio.h \
+    ../concretedigitalio.h \
+    ../abstractio.h
 
 # Add an extra 'make check' target.
 QMAKE_EXTRA_TARGETS = check
