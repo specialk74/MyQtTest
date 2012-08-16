@@ -19,7 +19,7 @@
     <io n="Radar sens media" v="16" pds="6" i="1" d="1" g="2" cn="1"/>
     <io n="Radar sens alta" v="17" pds="6" i="1" d="1" g="2" cn="1"/>
 
-    <io n="Generico Analogico" v="20" pds="2" i=1" d="0" g="3" cn="1"/>
+    <io n="Generico Analogico" v="20" pds="2" i="1" d="0" g="3" cn="1"/>
     <io n="Controllo Carichi" v="60" pds="2" i="1" d="0" g="3" cn="1"/>
 
     <io n="Sensore Temperatura" v="21" pds="3" pds="6" i="1" d="0" g="4" cn="1"/>

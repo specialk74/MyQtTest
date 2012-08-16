@@ -2,12 +2,12 @@
 
 SingleTypeIO::SingleTypeIO ()
 {
-
+    qDebug() << "CTor: " << this;
 }
 
 SingleTypeIO::~SingleTypeIO()
 {
-
+    qDebug() << "DTor: " << this;
 }
 
 

@@ -1,6 +1,11 @@
 #ifndef TYPEIO_H
 #define TYPEIO_H
 
+#include <QDomDocument>
+#include <QString>
+
+#include "singletypeio.h"
+
 /*
 enum ValueTypeIO {
     // Tipologia ingressi NO
@@ -72,11 +77,15 @@ class TypeIO
 {
 public:
     TypeIO();
+    ~TypeIO();
 
-    static bool init();
-    static bool isInput(int const&);
+    static bool init(const QString &);
+    static bool init(const QDomDocument &);
+
 private:
-//    QMap<int,
+    static QList<SingleTypeIO *> m_list;
+    static void clear ();
+
 };
 
 #endif // TYPEIO_H

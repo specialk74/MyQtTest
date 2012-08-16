@@ -13,7 +13,10 @@ public:
 private slots:
     void initTestCase ()
     {
-        bool result = TypeIO::init();
+        bool result = TypeIO::init("../TypeIO.xml");
+        QVERIFY(result == true);
+
+        result = TypeIO::init(":/TypeIO.xml");
         QVERIFY(result == true);
     }
 
@@ -28,11 +31,6 @@ private slots:
     {
     }
 
-    void GetValueAtStart()
-    {
-//        bool result = TypeIO::isInput(Generico_Input_NO);
-//        QVERIFY(result == true);
-    }
 };
 
 QTTESTUTIL_REGISTER_TEST(TestTypeIO);

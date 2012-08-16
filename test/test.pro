@@ -36,3 +36,4 @@ check.commands = \$(MAKE) \
 
 # Cleanup the checker on 'make clean'
 QMAKE_CLEAN += $(QMAKE_TARGET)
+RESOURCES += ../qresource.qrc
