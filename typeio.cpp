@@ -2,7 +2,7 @@
 #include <QFile>
 #include "typeio.h"
 
-QList<SingleTypeIO *> TypeIO::m_list;
+QMap<int, SingleTypeIO *> TypeIO::m_mapTypeIO;
 
 TypeIO::TypeIO()
 {
@@ -26,7 +26,7 @@ bool TypeIO::init(const QDomDocument & doc)
         if(!e.isNull()) {
             SingleTypeIO *single = new SingleTypeIO;
             single->load(e);
-            m_list.append(single);
+            m_mapTypeIO.insert(single->value(), single);
         }
         n = n.nextSibling();
     }
@@ -36,9 +36,16 @@ bool TypeIO::init(const QDomDocument & doc)
 
 void TypeIO::clear ()
 {
-    qDebug() << __FILE__ << __LINE__ << __func__;
-    while (!m_list.isEmpty())
-        delete m_list.takeFirst();
+    /*
+    while (!m_mapTypeIO.isEmpty())
+        delete m_mapTypeIO.takeFirst();
+        */
+    QMap<int, SingleTypeIO*>::const_iterator i = m_mapTypeIO.constBegin();
+    while (i != m_mapTypeIO.constEnd()) {
+        delete i.value();
+        ++i;
+    }
+    m_mapTypeIO.clear();
 }
 
 bool TypeIO::init(const QString &nomeFile)

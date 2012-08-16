@@ -15,16 +15,16 @@
     <io n="Sistema Sicurezza" v="14" i="1" d="1" g="1" cn="1"/>
     <io n="Assenza Rete" v="18" i="1" d="1" g="1" cn="1"/>
 
-    <io n="Radar sens bassa" v="15" pds="6" i="1" d="1" g="2" cn="1"/>
-    <io n="Radar sens media" v="16" pds="6" i="1" d="1" g="2" cn="1"/>
-    <io n="Radar sens alta" v="17" pds="6" i="1" d="1" g="2" cn="1"/>
+    <io n="Radar sens bassa" v="15" i="1" d="1" g="2" cn="1"/>
+    <io n="Radar sens media" v="16" i="1" d="1" g="2" cn="1"/>
+    <io n="Radar sens alta" v="17" i="1" d="1" g="2" cn="1"/>
 
-    <io n="Generico Analogico" v="20" pds="2" i="1" d="0" g="3" cn="1"/>
-    <io n="Controllo Carichi" v="60" pds="2" i="1" d="0" g="3" cn="1"/>
+    <io n="Generico Analogico" v="20" i="1" d="0" g="3" cn="1"/>
+    <io n="Controllo Carichi" v="60" i="1" d="0" g="3" cn="1"/>
 
-    <io n="Sensore Temperatura" v="21" pds="3" pds="6" i="1" d="0" g="4" cn="1"/>
+    <io n="Sensore Temperatura" v="21" i="1" d="0" g="4" cn="1"/>
 
-    <io n="Sensore Luce" v="22" pds="3" pds="6" i="1" d="0" g="5" cn="1"/>
+    <io n="Sensore Luce" v="22" i="1" d="0" g="5" cn="1"/>
 
     <io n="Generica NO" v="30" i="0" d="1" g="6" cn="1"/>
     <io n="Luce/Presa" v="31" i="0" d="1" g="6" cn="1"/>
@@ -50,11 +50,11 @@
     <io n="Controllo Carichi Liv.7 Man" v="77" i="0" d="1" g="6" cn="1"/>
     <io n="Controllo Carichi Liv.8 Man" v="78" i="0" d="1" g="6" cn="1"/>
 
-    <io n="Uscita Analogica" v="40" pds="2" i="0" d="0" g="7" cn="1"/>
+    <io n="Uscita Analogica" v="40" i="0" d="0" g="7" cn="1"/>
 
-    <io n="Led" v="41" pds="6" i="0" d="0" g="8" cn="1"/>
+    <io n="Led" v="41" i="0" d="0" g="8" cn="1"/>
 
-    <io n="FeedBack" v="100" pds="2" i="1" d="1" g="9" cn="0" />
+    <io n="FeedBack" v="100" i="1" d="1" g="9" cn="0" />
 
-    <io n="Sabotaggio" v="101" pds="2" i="1" d="1" g="10" cn="0" />
+    <io n="Sabotaggio" v="101" i="1" d="1" g="10" cn="0" />
 </TypeIO>
