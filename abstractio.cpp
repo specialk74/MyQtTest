@@ -3,7 +3,7 @@
 
 AbstractIO::AbstractIO(QObject *parent) : QObject (parent)
 {
-    m_type = TypeIO::at(0); // Per default e' un ingresso di Tipo NC
+    m_type = NULL;
 }
 
 AbstractIO::~AbstractIO()
@@ -12,7 +12,7 @@ AbstractIO::~AbstractIO()
 
 void AbstractIO::name (const QString & str)
 {
-    if (m_type->canChangeName() && (CheckLenName16Char(*this, str)))
+    if (m_type && m_type->canChangeName() && (CheckLenName16Char(*this, str)))
     {
         emit nameChanged(str);
     }
@@ -20,16 +20,21 @@ void AbstractIO::name (const QString & str)
 
 QString AbstractIO::name() const
 {
-    return objectName();
+    if (!objectName().isEmpty())
+        return objectName();
+    else if (m_type)
+        return m_type->nome();
+
+    return QString ("");
 }
 
 void AbstractIO::setType (const int &t)
 {
-    if (TypeIO::canChangeTypeIn(m_type->value(), t))
-    {
-        if (getType() == t)
-            return;
+    if (getType() == t)
+        return;
 
+    if ((m_type == NULL) || TypeIO::canChangeTypeIn(m_type->value(), t))
+    {
         m_type = TypeIO::at(t);
         emit typeChanged(t);
     }

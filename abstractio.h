@@ -25,7 +25,7 @@ public:
     virtual void value(const int &) = 0;
     virtual int value() const = 0;
 
-    virtual int getType() const { return m_type->value(); }
+    virtual int getType() const { return m_type ? m_type->value() : -1; }
     virtual void setType (const int &t);
 
     virtual void name (const QString &);

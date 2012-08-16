@@ -52,7 +52,7 @@ private slots:
     void create()
     {
         int result = inputDigitale->getType();
-        QCOMPARE(0, result);
+        QCOMPARE(-1, result);
     }
 
 
@@ -136,6 +136,8 @@ private slots:
         QSignalSpy spy(inputDigitale, SIGNAL(typeChanged(int)));
         inputDigitale->setType(Generico_Input_NC);
         QCOMPARE(spy.count(), 1); // make sure the signal was emitted exactly 1 time
+        inputDigitale->setType(Generico_Input_NC);
+        QCOMPARE(spy.count(), 1); // non deve aumentare rispetto all'ultimo spy.count()
 
         inputDigitale->setType(Generica_Uscita_NC);
         QCOMPARE(spy.count(), 1); // non deve aumentare rispetto all'ultimo spy.count()
@@ -156,6 +158,7 @@ private slots:
 
     void SetName()
     {
+        inputDigitale->setType(Generico_Input_NO);
         QSignalSpy spy(inputDigitale, SIGNAL(nameChanged(QString)));
         inputDigitale->name(nomeSetGood);
         QCOMPARE(spy.count(), 1); // make sure the signal was emitted exactly 1 time
@@ -167,6 +170,7 @@ private slots:
 
     void GetName()
     {
+        inputDigitale->setType(Generico_Input_NO);
         inputDigitale->name(nomeSetGood);
         QCOMPARE(nomeSetGood, inputDigitale->name());
     }
@@ -180,6 +184,7 @@ private slots:
 
     void SetNameNotChange()
     {
+        inputDigitale->setType(Generico_Input_NO);
         inputDigitale->name(nomeSetGood);
 
         QSignalSpy spy(inputDigitale, SIGNAL(nameChanged(QString)));
@@ -197,17 +202,26 @@ private slots:
         QCOMPARE(spy.count(), 0); // make sure the signal was emitted exactly 0 time
     }
 
-    void SetNameWithType()
+    void SetNameFeedBack()
     {
-        inputDigitale->setType(Generico_Input_NO);
-        inputDigitale->name("");
-
         inputDigitale->setType(FeedBack);
         QSignalSpy spy(inputDigitale, SIGNAL(nameChanged(QString)));
 
         inputDigitale->name(nomeSetGood);
         QCOMPARE(spy.count(), 0); // make sure the signal was emitted exactly 0 time
+        QCOMPARE(QString("FeedBack"), inputDigitale->name());
     }
+
+    void SetNameSabotaggio()
+    {
+        inputDigitale->setType(Sabotaggio);
+        QSignalSpy spy(inputDigitale, SIGNAL(nameChanged(QString)));
+
+        inputDigitale->name(nomeSetGood);
+        QCOMPARE(spy.count(), 0); // make sure the signal was emitted exactly 0 time
+        QCOMPARE(QString("Sabotaggio"), inputDigitale->name());
+    }
+    /* FINE NOME */
 
 private:
     ConcreteDigitalIO *inputDigitale;
