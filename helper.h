@@ -4,6 +4,8 @@
 #include <QMap>
 #include <QObject>
 #include <QString>
+#include <QtXml>
+#include <QVariant>
 
 int CheckLenName16Char (QObject &, QString const &);
 
@@ -81,5 +83,20 @@ enum ValueTypeIO {
 };
 
 const char * getMyProperty (const MyProperty &);
+
+enum EnumAddress {
+    INVALID_ADDRESS,
+    REGULAR_ADDRESS,
+    BROADCAST_ADDRESS
+};
+
+EnumAddress CheckAddress (const quint16 &);
+
+void setString (QObject *obj, const QDomElement &element, const char *attribute);
+bool setInt (QObject *obj, const QDomElement &element, const char *attribute);
+bool setBool (QObject *obj, const QDomElement &element, const char *attribute);
+int readInt (const QObject *obj,const char *attribute);
+QString readString (const QObject *obj, const char *attribute);
+bool readBool (const QObject *obj, const char *attribute);
 
 #endif // HELPER_H

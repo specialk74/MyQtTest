@@ -9,12 +9,17 @@ class ConcretePds : public QObject
 public:
     explicit ConcretePds(QObject *);
 
-    virtual void name (const QString &);
-    virtual QString name () const;
+    virtual void setName (const QString &);
+    virtual QString getName () const;
+
+    virtual quint16 getAddress() const { return m_address; }
+    virtual void setAddress(const quint16 &);
 
 signals:
     void nameChanged(QString);
 
+protected:
+    quint16 m_address;    
 };
 
 #endif // CONCRETEPDS_H

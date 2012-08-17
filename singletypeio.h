@@ -3,7 +3,7 @@
 
 #include <QtXml>
 
-class SingleTypeIO : QObject
+class SingleTypeIO : public QObject
 {
 public:
     explicit SingleTypeIO ();
@@ -24,15 +24,6 @@ public:
     bool isDigital() const;
     int group() const;
     bool canChangeName() const;
-
-private:
-    bool setBool (const QDomElement &, const char *);
-    bool setInt (const QDomElement &, const char *);
-    void setString (const QDomElement &, const char *);
-
-    bool readBool (const char *) const;
-    int readInt (const char *) const;
-    QString readString (const char *) const;
 };
 
 #endif // SINGLETYPEIO_H

@@ -3,9 +3,10 @@
 
 ConcretePds::ConcretePds(QObject *parente) : QObject(parente)
 {
+    m_address = 0;
 }
 
-void ConcretePds::name (const QString & str)
+void ConcretePds::setName (const QString & str)
 {
     if (CheckLenName16Char(*this, str))
     {
@@ -13,7 +14,17 @@ void ConcretePds::name (const QString & str)
     }
 }
 
-QString ConcretePds::name() const
+QString ConcretePds::getName() const
 {
     return objectName();
+}
+
+
+void ConcretePds::setAddress(const quint16 & address)
+{
+    if (m_address == 0)
+    {
+        if (CheckAddress(address) == REGULAR_ADDRESS)
+            m_address = address;
+    }
 }

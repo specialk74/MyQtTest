@@ -39,13 +39,13 @@ private slots:
     /* INIZIO NAME */
     void GetNameAtStart()
     {
-        QCOMPARE(QString(""), concretePds->name());
+        QCOMPARE(QString(""), concretePds->getName());
     }
 
     void SetName()
     {
         QSignalSpy spy(concretePds, SIGNAL(nameChanged(QString)));
-        concretePds->name(nomeSetGood);
+        concretePds->setName(nomeSetGood);
         QCOMPARE(spy.count(), 1); // make sure the signal was emitted exactly 1 time
 
         QList<QVariant> arguments = spy.takeFirst();
@@ -55,37 +55,62 @@ private slots:
 
     void GetName()
     {
-        concretePds->name(nomeSetGood);
-        QCOMPARE(nomeSetGood, concretePds->name());
+        concretePds->setName(nomeSetGood);
+        QCOMPARE(nomeSetGood, concretePds->getName());
     }
 
     void SetNameTooLong()
     {
         QSignalSpy spy(concretePds, SIGNAL(nameChanged(QString)));
-        concretePds->name(nomeSetBad);
+        concretePds->setName(nomeSetBad);
         QCOMPARE(spy.count(), 0); // make sure the signal was emitted exactly 0 time
     }
 
     void SetNameNotChange()
     {
-        concretePds->name(nomeSetGood);
+        concretePds->setName(nomeSetGood);
 
         QSignalSpy spy(concretePds, SIGNAL(nameChanged(QString)));
-        concretePds->name(nomeSetBad);
+        concretePds->setName(nomeSetBad);
         QCOMPARE(spy.count(), 0); // make sure the signal was emitted exactly 0 time
 
-        QCOMPARE(nomeSetGood, concretePds->name());
+        QCOMPARE(nomeSetGood, concretePds->getName());
     }
 
     void SetNameSameName()
     {
-        concretePds->name(nomeSetGood);
+        concretePds->setName(nomeSetGood);
         QSignalSpy spy(concretePds, SIGNAL(nameChanged(QString)));
-        concretePds->name(nomeSetGood);
+        concretePds->setName(nomeSetGood);
         QCOMPARE(spy.count(), 0); // make sure the signal was emitted exactly 0 time
     }
 
     /* FINE NOME */
+
+    /* INIZIO ADDRESS */
+    void TestSetAddress ()
+    {
+        quint16 address = 0;
+        concretePds->setAddress(address);
+        QCOMPARE((quint16)0, concretePds->getAddress());
+
+        address = 0x100;
+        concretePds->setAddress(address);
+        QCOMPARE((quint16)0, concretePds->getAddress());
+
+        address = 0x001;
+        concretePds->setAddress(address);
+        QCOMPARE((quint16)0, concretePds->getAddress());
+
+        address = 0x101;
+        concretePds->setAddress(address);
+        QCOMPARE(address, concretePds->getAddress());
+
+        concretePds->setAddress(0x102);
+        QCOMPARE(address, concretePds->getAddress());
+    }
+
+    /* FINE ADDRESS */
 
 private:
     ConcretePds *concretePds;

@@ -55,6 +55,37 @@ private slots:
         QCOMPARE(0, result);
     }
 
+    void TestCheckAddress ()
+    {
+        quint16 address = 0;
+        EnumAddress result = CheckAddress (address);
+        QCOMPARE(INVALID_ADDRESS, result);
+
+        address = 0x0FF;
+        result = CheckAddress (address);
+        QCOMPARE(BROADCAST_ADDRESS, result);
+
+        address = 0xFFF;
+        result = CheckAddress (address);
+        QCOMPARE(BROADCAST_ADDRESS, result);
+
+        address = 0x1FF;
+        result = CheckAddress (address);
+        QCOMPARE(BROADCAST_ADDRESS, result);
+
+        address = 0x001;
+        result = CheckAddress (address);
+        QCOMPARE(BROADCAST_ADDRESS, result);
+
+        address = 0x100;
+        result = CheckAddress (address);
+        QCOMPARE(BROADCAST_ADDRESS, result);
+
+        address = 0x101;
+        result = CheckAddress (address);
+        QCOMPARE(REGULAR_ADDRESS, result);
+    }
+
 private:
     QObject *obj;
 };

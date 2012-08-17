@@ -15,11 +15,11 @@ private slots:
 
     void init()
     {
-        singleTypeIO = new SingleTypeIO;
+        singleType = new SingleTypeIO;
     }
     void cleanup()
     {
-        delete singleTypeIO;
+        delete singleType;
     }
 
     void create()
@@ -29,14 +29,14 @@ private slots:
     void CheckGoodTagName()
     {
         QDomElement domElement = doc.createElement (SingleTypeIO::getTagName());
-        int result = singleTypeIO->load(domElement);
+        int result = singleType->load(domElement);
         QCOMPARE(1, result);
     }
 
     void CheckBadTagName()
     {
         QDomElement domElement = doc.createElement ("badName");
-        int result = singleTypeIO->load(domElement);
+        int result = singleType->load(domElement);
         QCOMPARE(0, result);
     }
 
@@ -45,133 +45,133 @@ private slots:
         QString provaNome = "prova";
         QDomElement domElement = doc.createElement (SingleTypeIO::getTagName());
         domElement.setAttribute(SingleTypeIO::getAttributeNome(), provaNome);
-        bool result = singleTypeIO->load(domElement);
+        bool result = singleType->load(domElement);
         QCOMPARE(true, result);
 
-        QString resultNome=singleTypeIO->nome();
+        QString resultNome=singleType->nome();
         QCOMPARE(provaNome, resultNome);
     }
 
     void CheckValore ()
     {
-        int valore = singleTypeIO->value();
+        int valore = singleType->value();
         QCOMPARE(-1, valore);
 
         QDomElement domElement = doc.createElement (SingleTypeIO::getTagName());
         domElement.setAttribute(SingleTypeIO::getAttributeValue(), 1);
-        bool result = singleTypeIO->load(domElement);        
+        bool result = singleType->load(domElement);
         QCOMPARE(true, result);
 
-        valore = singleTypeIO->value();
+        valore = singleType->value();
         QCOMPARE(1, valore);
 
         domElement.setAttribute(SingleTypeIO::getAttributeValue(), -1);
-        result = singleTypeIO->load(domElement);
+        result = singleType->load(domElement);
         QCOMPARE(false, result);
     }
 
     void CheckInput ()
     {
-        bool input = singleTypeIO->isInput();
+        bool input = singleType->isInput();
         QCOMPARE(false, input);
 
         QDomElement domElement = doc.createElement (SingleTypeIO::getTagName());
         domElement.setAttribute(SingleTypeIO::getAttributeInput(), 1);
-        bool result = singleTypeIO->load(domElement);
+        bool result = singleType->load(domElement);
         QCOMPARE(true, result);
-        input = singleTypeIO->isInput();
+        input = singleType->isInput();
         QCOMPARE(true, input);
 
         domElement.setAttribute(SingleTypeIO::getAttributeInput(), 0);
-        result = singleTypeIO->load(domElement);
+        result = singleType->load(domElement);
         QCOMPARE(true, result);
-        input = singleTypeIO->isInput();
+        input = singleType->isInput();
         QCOMPARE(false, input);
 
         domElement.setAttribute(SingleTypeIO::getAttributeInput(), -1);
-        result = singleTypeIO->load(domElement);
+        result = singleType->load(domElement);
         QCOMPARE(false, result);
         domElement.setAttribute(SingleTypeIO::getAttributeInput(), 2);
-        result = singleTypeIO->load(domElement);
+        result = singleType->load(domElement);
         QCOMPARE(false, result);
     }
 
     void CheckDigital ()
     {
-        bool digital = singleTypeIO->isDigital();
+        bool digital = singleType->isDigital();
         QCOMPARE(false, digital);
 
         QDomElement domElement = doc.createElement (SingleTypeIO::getTagName());
         domElement.setAttribute(SingleTypeIO::getAttributeDigital(), 1);
-        bool result = singleTypeIO->load(domElement);
+        bool result = singleType->load(domElement);
         QCOMPARE(true, result);
 
-        digital = singleTypeIO->isDigital();
+        digital = singleType->isDigital();
         QCOMPARE(true, digital);
 
         domElement.setAttribute(SingleTypeIO::getAttributeDigital(), 0);
-        result = singleTypeIO->load(domElement);
+        result = singleType->load(domElement);
         QCOMPARE(true, result);
 
-        digital = singleTypeIO->isDigital();
+        digital = singleType->isDigital();
         QCOMPARE(false, digital);
 
         domElement.setAttribute(SingleTypeIO::getAttributeDigital(), -1);
-        result = singleTypeIO->load(domElement);
+        result = singleType->load(domElement);
         QCOMPARE(false, result);
         domElement.setAttribute(SingleTypeIO::getAttributeDigital(), 2);
-        result = singleTypeIO->load(domElement);
+        result = singleType->load(domElement);
         QCOMPARE(false, result);
     }
 
     void CheckGroup ()
     {
-        int valore = singleTypeIO->group();
+        int valore = singleType->group();
         QCOMPARE(-1, valore);
 
         QDomElement domElement = doc.createElement (SingleTypeIO::getTagName());
         domElement.setAttribute(SingleTypeIO::getAttributeGroup(), 1);
-        bool result = singleTypeIO->load(domElement);
+        bool result = singleType->load(domElement);
         QCOMPARE(true, result);
 
-        valore = singleTypeIO->group();
+        valore = singleType->group();
         QCOMPARE(1, valore);
 
         domElement.setAttribute(SingleTypeIO::getAttributeGroup(), -1);
-        result = singleTypeIO->load(domElement);
+        result = singleType->load(domElement);
         QCOMPARE(false, result);
     }
 
     void CheckChangeName ()
     {
-        bool canChangename = singleTypeIO->canChangeName();
+        bool canChangename = singleType->canChangeName();
         QCOMPARE(false, canChangename);
 
         QDomElement domElement = doc.createElement (SingleTypeIO::getTagName());
         domElement.setAttribute(SingleTypeIO::getAttributeCanChangeName(), 1);
-        bool result = singleTypeIO->load(domElement);
+        bool result = singleType->load(domElement);
         QCOMPARE(true, result);
 
-        canChangename = singleTypeIO->canChangeName();
+        canChangename = singleType->canChangeName();
         QCOMPARE(true, canChangename);
 
         domElement.setAttribute(SingleTypeIO::getAttributeCanChangeName(), 0);
-        result = singleTypeIO->load(domElement);
+        result = singleType->load(domElement);
         QCOMPARE(true, result);
 
-        canChangename = singleTypeIO->canChangeName();
+        canChangename = singleType->canChangeName();
         QCOMPARE(false, canChangename);
 
         domElement.setAttribute(SingleTypeIO::getAttributeCanChangeName(), -1);
-        result = singleTypeIO->load(domElement);
+        result = singleType->load(domElement);
         QCOMPARE(false, result);
         domElement.setAttribute(SingleTypeIO::getAttributeCanChangeName(), 2);
-        result = singleTypeIO->load(domElement);
+        result = singleType->load(domElement);
         QCOMPARE(false, result);
     }
 
 private:
-    SingleTypeIO *singleTypeIO;
+    SingleTypeIO *singleType;
     QDomDocument doc;
 };
 
