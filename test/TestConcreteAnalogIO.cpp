@@ -217,6 +217,13 @@ private slots:
     }
     /* FINE NOME */
 
+    void TestNumeroIO ()
+    {
+        QCOMPARE((quint8)0, inputAnalogico->getNumero());
+        inputAnalogico->setNumero((quint8)1);
+        QCOMPARE((quint8)1, inputAnalogico->getNumero());
+    }
+
 private:
     ConcreteAnalogIO *inputAnalogico;
     QObject *parente;

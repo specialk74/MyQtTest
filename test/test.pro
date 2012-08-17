@@ -28,7 +28,9 @@ SOURCES += QtTestUtil/SimpleChecker.cpp \
     TestConcretePds.cpp \
     ../concretepds.cpp \
     TestSingleTypePDS.cpp \
-    ../singletypepds.cpp
+    ../singletypepds.cpp \
+    TestFactoryConcreteIO.cpp \
+    ../factoryconcreteio.cpp
 HEADERS += ../helper.h \
     ../typeio.h \
     ../singletypeio.h \
@@ -36,7 +38,8 @@ HEADERS += ../helper.h \
     ../abstractio.h \
     ../concreteanalogio.h \
     ../concretepds.h \
-    ../singletypepds.h
+    ../singletypepds.h \
+    ../factoryconcreteio.h
 
 # Add an extra 'make check' target.
 QMAKE_EXTRA_TARGETS = check

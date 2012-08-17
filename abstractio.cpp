@@ -4,6 +4,7 @@
 AbstractIO::AbstractIO(QObject *parent) : QObject (parent)
 {
     m_type = NULL;
+    m_numero = 0;
 }
 
 AbstractIO::~AbstractIO()
@@ -38,4 +39,9 @@ void AbstractIO::setType (const int &t)
         m_type = TypeIO::at(t);
         emit typeChanged(t);
     }
+}
+
+void AbstractIO::setNumero(const quint8 &n)
+{
+    m_numero = n;
 }

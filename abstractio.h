@@ -29,6 +29,9 @@ public:
     virtual void name (const QString &);
     virtual QString name () const;
 
+    virtual quint8 getNumero() const { return m_numero; }
+    virtual void setNumero(const quint8 &);
+
 signals:
     void valueChanged(int);
     void nameChanged(QString);
@@ -36,6 +39,7 @@ signals:
 
 private:
     SingleTypeIO * m_type;
+    quint8 m_numero;
 
     AbstractIO(const AbstractIO&);
     AbstractIO& operator=(const AbstractIO&);
