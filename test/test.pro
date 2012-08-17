@@ -13,10 +13,7 @@ INCLUDEPATH += . \
     ..
 
 # Input
-SOURCES += TestInputDigitale.cpp \
-    QtTestUtil/SimpleChecker.cpp \
-    ../InputDigitale.cpp \
-    ../AbstractInputOutputDigitale.cpp \
+SOURCES += QtTestUtil/SimpleChecker.cpp \
     ../typeio.cpp \
     ../helper.cpp \
     TestTypeIO.cpp \
@@ -26,9 +23,7 @@ SOURCES += TestInputDigitale.cpp \
     TestConcreteDigitalIO.cpp \
     ../concretedigitalio.cpp \
     ../abstractio.cpp
-HEADERS += ../InputDigitale.h \
-    ../AbstractInputOutputDigitale.h \
-    ../helper.h \
+HEADERS += ../helper.h \
     ../typeio.h \
     ../singletypeio.h \
     ../concretedigitalio.h \
