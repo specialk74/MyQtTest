@@ -1,2 +1,5 @@
 moc_*
 *.o
+*.moc
+Makefile
+*.user
