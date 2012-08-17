@@ -11,13 +11,17 @@ SOURCES += main.cpp \
     typeio.cpp \
     singletypeio.cpp \
     abstractio.cpp \
-    concretedigitalio.cpp
+    concretedigitalio.cpp \
+    concreteanalogio.cpp \
+    concretepds.cpp
 HEADERS += mainwindow.h \
     helper.h \
     typeio.h \
     singletypeio.h \
     abstractio.h \
-    concretedigitalio.h
+    concretedigitalio.h \
+    concreteanalogio.h \
+    concretepds.h
 FORMS += mainwindow.ui
 OTHER_FILES += TypeIO.xml
 RESOURCES += qresource.qrc
